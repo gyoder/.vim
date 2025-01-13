@@ -6,7 +6,7 @@ syntax on
 set number
 set cursorline
 set cursorcolumn
-
+source ~/.vim/autoload/plug.vi
 
 
 " Set shift width to 4 spaces.
