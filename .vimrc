@@ -85,15 +85,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'lifepillar/vim-solarized8'
     Plug 'sainnhe/everforest'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'LucHermitte/lh-cpp'
     Plug 'craigemery/vim-autotag'
-    " Plug 'wfxr/minimap.vim'
-    let g:minimap_width = 10
-    let g:minimap_auto_start = 1
-    let g:minimap_highlight_search = 1
-    let g:minimap_git_colors = 1
-    Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     let g:airline_theme='base16_solarized_dark'
@@ -108,7 +102,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'emilienlemaire/clang-tidy.nvim'
     Plug 'neovim/nvim-lspconfig'
     if match(system('hostname'), 'cs.purdue.edu$') == -1
-        Plug 'github/copilot.vim'
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        Plug 'github/copilot'
+        Plug 'wfxr/minimap.vim'
+        let g:minimap_width = 10
+        let g:minimap_auto_start = 1
+        let g:minimap_highlight_search = 1
+        let g:minimap_git_colors = 1
     endif
 
 call plug#end()
