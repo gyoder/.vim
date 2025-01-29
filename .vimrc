@@ -6,15 +6,20 @@ syntax on
 set number
 set cursorline
 set cursorcolumn
+
 source ~/.vim/autoload/plug.vim
+set clipboard=unnamedplus
 
 
 " Set shift width to 4 spaces.
-set shiftwidth=4
+set shiftwidth=2
 
 " Set tab width to 4 columns.
 set tabstop=4
-
+if g:hostname =~# 'cs.purdue.edu$'
+    set tabstop=2
+    set shiftwidth=2
+endif
 " Use space characters instead of tabs.
 set expandtab
 
@@ -60,6 +65,17 @@ set secure
  set autochdir
  set tags=tags;
 
+ let g:ale_linters = {
+    \ 'python': ['pylint'],
+    \ 'vim': ['vint'],
+    \ 'cpp': ['clang'],
+    \ 'c': ['clang']
+\}
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
@@ -69,15 +85,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'lifepillar/vim-solarized8'
     Plug 'sainnhe/everforest'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Plug 'LucHermitte/lh-cpp'
+    Plug 'LucHermitte/lh-cpp'
     Plug 'craigemery/vim-autotag'
-    Plug 'wfxr/minimap.vim'
-    let g:minimap_width = 10
-    let g:minimap_auto_start = 1
-    let g:minimap_highlight_search = 1
-    let g:minimap_git_colors = 1
-    Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     let g:airline_theme='base16_solarized_dark'
@@ -86,6 +96,20 @@ call plug#begin('~/.vim/plugged')
     Plug 'terryma/vim-smooth-scroll'
     Plug 'f-person/git-blame.nvim'
     Plug 'Yggdroot/indentLine'
+    Plug 'deoplete-plugins/deoplete-clang'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'emilienlemaire/clang-tidy.nvim'
+    Plug 'neovim/nvim-lspconfig'
+    if match(system('hostname'), 'cs.purdue.edu$') == -1
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        Plug 'github/copilot'
+        Plug 'wfxr/minimap.vim'
+        let g:minimap_width = 10
+        let g:minimap_auto_start = 1
+        let g:minimap_highlight_search = 1
+        let g:minimap_git_colors = 1
+    endif
 
 call plug#end()
 
@@ -99,7 +123,7 @@ call plug#end()
     nnoremap <leader>\ :nohlsearch<CR>
 
     inoremap jj <esc>
-    
+
     nnoremap <C-b> :NERDTreeToggle<CR>
 
     inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
@@ -107,6 +131,14 @@ call plug#end()
     map <leader>g :GFiles<CR>
     map <leader>f :Files<CR>
     map <leader>t :Tags<CR>
+    nnoremap <silent> <leader>r :lua vim.lsp.buf.rename()<CR>
+    func! DeleteTrailingWS()
+      exe "normal mz"
+      %s/\s\+$//ge
+      exe "normal `z"
+    endfunc
+    noremap <leader>w :call DeleteTrailingWS()<CR>
+
 
 " }}}
 
@@ -127,6 +159,7 @@ if version >= 703
     set undofile
     set undoreload=10000
 endif
+
 
 " }}}
 
