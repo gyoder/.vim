@@ -7,14 +7,17 @@ set number
 set cursorline
 set cursorcolumn
 source ~/.vim/autoload/plug.vim
-
+set clipboard=unnamedplus
 
 " Set shift width to 4 spaces.
 set shiftwidth=4
 
 " Set tab width to 4 columns.
 set tabstop=4
-
+if g:hostname =~# 'cs.purdue.edu$'
+    set tabstop=2
+    set shiftwidth=2
+endif
 " Use space characters instead of tabs.
 set expandtab
 
@@ -86,7 +89,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'terryma/vim-smooth-scroll'
     Plug 'f-person/git-blame.nvim'
     Plug 'Yggdroot/indentLine'
-    Plug 'github/copilot.vim'
+    if g:hostname =~# 'cs.purdue.edu$'
+        Plug 'github/copilot.vim'
+    endif
 
 call plug#end()
 
@@ -108,6 +113,7 @@ call plug#end()
     map <leader>g :GFiles<CR>
     map <leader>f :Files<CR>
     map <leader>t :Tags<CR>
+
 
 " }}}
 
