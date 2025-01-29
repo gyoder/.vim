@@ -7,14 +7,19 @@ set number
 set cursorline
 set cursorcolumn
 
+source ~/.vim/autoload/plug.vim
+set clipboard=unnamedplus
 
 
 " Set shift width to 4 spaces.
 set shiftwidth=2
 
 " Set tab width to 4 columns.
-set tabstop=2
-
+set tabstop=4
+if g:hostname =~# 'cs.purdue.edu$'
+    set tabstop=2
+    set shiftwidth=2
+endif
 " Use space characters instead of tabs.
 set expandtab
 
@@ -102,7 +107,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'emilienlemaire/clang-tidy.nvim'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'github/copilot.vim'
+    if match(system('hostname'), 'cs.purdue.edu$') == -1
+        Plug 'github/copilot.vim'
+    endif
 
 call plug#end()
 
@@ -131,6 +138,7 @@ call plug#end()
       exe "normal `z"
     endfunc
     noremap <leader>w :call DeleteTrailingWS()<CR>
+
 
 " }}}
 
