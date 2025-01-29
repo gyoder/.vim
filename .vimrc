@@ -86,6 +86,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'terryma/vim-smooth-scroll'
     Plug 'f-person/git-blame.nvim'
     Plug 'Yggdroot/indentLine'
+    Plug 'github/copilot.vim'
 
 call plug#end()
 
