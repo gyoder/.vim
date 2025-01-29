@@ -102,7 +102,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'emilienlemaire/clang-tidy.nvim'
     Plug 'neovim/nvim-lspconfig'
-
+    Plug 'github/copilot.vim'
 
 call plug#end()
 
