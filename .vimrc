@@ -6,11 +6,13 @@ syntax on
 set number
 set cursorline
 set cursorcolumn
+
 source ~/.vim/autoload/plug.vim
 set clipboard=unnamedplus
 
+
 " Set shift width to 4 spaces.
-set shiftwidth=4
+set shiftwidth=2
 
 " Set tab width to 4 columns.
 set tabstop=4
@@ -63,6 +65,17 @@ set secure
  set autochdir
  set tags=tags;
 
+ let g:ale_linters = {
+    \ 'python': ['pylint'],
+    \ 'vim': ['vint'],
+    \ 'cpp': ['clang'],
+    \ 'c': ['clang']
+\}
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
@@ -73,9 +86,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'lifepillar/vim-solarized8'
     Plug 'sainnhe/everforest'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Plug 'LucHermitte/lh-cpp'
+    Plug 'LucHermitte/lh-cpp'
     Plug 'craigemery/vim-autotag'
-    Plug 'wfxr/minimap.vim'
+    " Plug 'wfxr/minimap.vim'
     let g:minimap_width = 10
     let g:minimap_auto_start = 1
     let g:minimap_highlight_search = 1
@@ -89,7 +102,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'terryma/vim-smooth-scroll'
     Plug 'f-person/git-blame.nvim'
     Plug 'Yggdroot/indentLine'
-    if g:hostname =~# 'cs.purdue.edu$'
+    Plug 'deoplete-plugins/deoplete-clang'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'emilienlemaire/clang-tidy.nvim'
+    Plug 'neovim/nvim-lspconfig'
+    if match(system('hostname'), 'cs.purdue.edu$') == -1
         Plug 'github/copilot.vim'
     endif
 
@@ -105,7 +123,7 @@ call plug#end()
     nnoremap <leader>\ :nohlsearch<CR>
 
     inoremap jj <esc>
-    
+
     nnoremap <C-b> :NERDTreeToggle<CR>
 
     inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
@@ -113,6 +131,13 @@ call plug#end()
     map <leader>g :GFiles<CR>
     map <leader>f :Files<CR>
     map <leader>t :Tags<CR>
+    nnoremap <silent> <leader>r :lua vim.lsp.buf.rename()<CR>
+    func! DeleteTrailingWS()
+      exe "normal mz"
+      %s/\s\+$//ge
+      exe "normal `z"
+    endfunc
+    noremap <leader>w :call DeleteTrailingWS()<CR>
 
 
 " }}}
@@ -134,6 +159,7 @@ if version >= 703
     set undofile
     set undoreload=10000
 endif
+
 
 " }}}
 
