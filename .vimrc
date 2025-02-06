@@ -87,7 +87,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sainnhe/everforest'
     Plug 'LucHermitte/lh-cpp'
     Plug 'craigemery/vim-autotag'
-        Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     let g:airline_theme='base16_solarized_dark'
