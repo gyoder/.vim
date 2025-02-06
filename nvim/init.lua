@@ -8,7 +8,7 @@ vim.g.hostname = hostname
 vim.cmd("source ~/.vim/autoload/plug.vim")
 vim.cmd("source ~/.vimrc")
 if string.match(hostname, "cs.purdue.edu") then
-  vim.env.PATH = vim.env.PATH .. ':' .. os.getenv("HOME") .. '/clangd_19.1.2/bin:/u/riker/u98/cs240/bin'
+  vim.env.PATH = vim.env.PATH .. ':' .. os.getenv("HOME") .. '/clangd/bin:/u/riker/u98/cs240/bin'
 end
 
 -- vim.cmd("source ~/.config/nvim/lua/cmp-config.lua")
