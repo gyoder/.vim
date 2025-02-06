@@ -65,12 +65,31 @@ set secure
  set autochdir
  set tags=tags;
 
- let g:ale_linters = {
-    \ 'python': ['pylint'],
-    \ 'vim': ['vint'],
-    \ 'cpp': ['clang'],
-    \ 'c': ['clang']
-\}
+if g:hostname =~# 'cs.purdue.edu$'
+  let g:ale_linters = {
+      \ 'python': ['pylint'],
+      \ 'vim': ['vint'],
+      \ 'cpp': ['clang'],
+      \ 'c': ['clang', 'clangtidy']
+  \}
+  let g:ale_cpp_clangtidy_checks = ['-*', 'eastwood*']
+  let g:ale_cpp_clangtidy_executable = '~/cs240/bin/clang-tidy'
+  let g:ale_c_parse_compile_commands=1
+  let g:ale_cpp_clangtidy_extra_options = '-- -I/homes/cs240/public/include/clang/include'
+  let g:ale_cpp_clangtidy_options = ''
+  let g:ale_set_balloons=1
+  let g:ale_linters_explicit=1
+  let g:airline#extensions#ale#enabled=1
+endif
+if !(g:hostname =~# 'cs.purdue.edu$')
+  let g:ale_linters = {
+      \ 'python': ['pylint'],
+      \ 'vim': ['vint'],
+      \ 'cpp': ['clang'],
+      \ 'c': ['clang']
+  \}
+endif
+
 
 set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
@@ -101,7 +120,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'emilienlemaire/clang-tidy.nvim'
     Plug 'neovim/nvim-lspconfig'
-    if match(system('hostname'), 'cs.purdue.edu$') == -1
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'Raimondi/delimitMate'
+    if !(g:hostname =~# 'cs.purdue.edu$')
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'github/copilot'
         Plug 'wfxr/minimap.vim'
@@ -160,6 +188,19 @@ if version >= 703
     set undoreload=10000
 endif
 
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
+
+let g:completion_enable_auto_popup = 0
+imap <tab> <Plug>(completion_smart_tab)
+imap <s-tab> <Plug>(completion_smart_s_tab)
 
 " }}}
 
