@@ -10,3 +10,11 @@ load all plugins and will use the Eastwood linter.
 ```bash
 curl -s https://raw.githubusercontent.com/gyoder/.vim/master/install.sh | bash
 ```
+
+If you are a Purdue student installing this on data, use this line to get neovim and clangd
+
+```bash
+curl -s https://raw.githubusercontent.com/gyoder/.vim/master/data_install.sh | bash
+```
+
+
