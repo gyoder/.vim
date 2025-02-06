@@ -1,11 +1,11 @@
 #!/bin/bash
 
-wget -o $HOME/clang.zip https://github.com/clangd/clangd/releases/download/19.1.2/clangd-linux-19.1.2.zip
+wget -O $HOME/clang.zip https://github.com/clangd/clangd/releases/download/19.1.2/clangd-linux-19.1.2.zip
 unzip $HOME/clangd.zip -d $HOME/clangd
 mv $HOME/clangd/clangd_19.1.2 $HOME/clangd
 rm -rf $HOME/clangd.zip
 
-wget -o $HOME/nvim.tar.gz https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz
+wget -O $HOME/nvim.tar.gz https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz
 tar -xvf $HOME/nvim.tar.gz -C $HOME
 mv $HOME/nvim-linux-x86_64 $HOME/nvim
 rm -rf $HOME/nvim.tar.gz
