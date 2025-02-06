@@ -104,7 +104,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'lifepillar/vim-solarized8'
     Plug 'sainnhe/everforest'
-    Plug 'LucHermitte/lh-cpp'
     Plug 'craigemery/vim-autotag'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
