@@ -2,15 +2,20 @@
 local cmp = require'cmp'
 
 
-vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#002b36" }) -- Solarized Dark background
-vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#586e75", bg = "#002b36" }) -- Border color
+local function get_hl_color(group, attr, fallback)
+    local hl = vim.api.nvim_get_hl(0, { name = group, link = false }) or {}
+    return hl[attr] and string.format("#%06x", hl[attr]) or fallback
+end
 
-vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#839496", bg = "NONE" }) -- Regular text
-vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#268bd2", bg = "NONE", bold = true }) -- Matched text
-vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#2aa198", bg = "NONE", italic = true }) -- Fuzzy match
+vim.api.nvim_set_hl(0, "CmpNormal", { bg = get_hl_color("Normal", "bg", "#002b36") }) 
+vim.api.nvim_set_hl(0, "CmpBorder", { fg = get_hl_color("FloatBorder", "fg", "#586e75"), bg = get_hl_color("Normal", "bg", "#002b36") })
 
-vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#b58900", bg = "NONE" }) -- Kinds (Function, Variable, etc.)
-vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#657b83", bg = "NONE" }) -- Menu description
+vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = get_hl_color("Normal", "fg", "#839496"), bg = "NONE" }) 
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = get_hl_color("Statement", "fg", "#268bd2"), bg = "NONE", bold = true }) 
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = get_hl_color("Type", "fg", "#2aa198"), bg = "NONE", italic = true }) 
+
+vim.api.nvim_set_hl(0, "CmpItemKind", { fg = get_hl_color("Special", "fg", "#b58900"), bg = "NONE" }) 
+vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = get_hl_color("Comment", "fg", "#657b83"), bg = "NONE" }) 
 
 
 

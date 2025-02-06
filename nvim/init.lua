@@ -7,7 +7,9 @@ vim.g.hostname = hostname
 
 vim.cmd("source ~/.vim/autoload/plug.vim")
 vim.cmd("source ~/.vimrc")
-vim.env.PATH = vim.env.PATH .. ':/u/riker/u99/yoder177/clangd_19.1.2/bin:/u/riker/u98/cs240/bin'
+if string.match(hostname, "cs.purdue.edu") then
+  vim.env.PATH = vim.env.PATH .. ':' .. os.getenv("HOME") .. '/clangd_19.1.2/bin:/u/riker/u98/cs240/bin'
+end
 
 -- vim.cmd("source ~/.config/nvim/lua/cmp-config.lua")
 require("cmp-config")
@@ -17,7 +19,7 @@ require('lspconfig').clangd.setup({
   capabilities = capabilities, 
   cmd = {
     "clangd",
-    "--clang-tidy",  -- Enable clang-tidy
+    -- "--clang-tidy",  -- Enable clang-tidy
     "--background-index",
   }  
 })
