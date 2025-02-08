@@ -19,7 +19,7 @@ source $HOME/.bashrc
 
 echo "Would you like to install the .vim folder from gyoder? (y/n)"
 read install_vim
-if [ $install_vim = "y" ]; then
+if [[ $install_vim == "y" ]]; then
     curl -s https://raw.githubusercontent.com/gyoder/.vim/master/install.sh | bash
 fi
 
