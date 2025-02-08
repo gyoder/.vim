@@ -73,7 +73,7 @@ if g:hostname =~# 'cs.purdue.edu$'
       \ 'c': ['clang', 'clangtidy']
   \}
   let g:ale_cpp_clangtidy_checks = ['-*', 'eastwood*']
-  let g:ale_cpp_clangtidy_executable = '~/cs240/bin/clang-tidy'
+  let g:ale_cpp_clangtidy_executable = 'clang-tidy'
   let g:ale_c_parse_compile_commands=1
   let g:ale_cpp_clangtidy_extra_options = '-- -I/homes/cs240/public/include/clang/include'
   let g:ale_cpp_clangtidy_options = ''
