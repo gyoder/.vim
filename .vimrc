@@ -19,6 +19,7 @@ set tabstop=4
 if g:hostname =~# 'cs.purdue.edu$'
     set tabstop=2
     set shiftwidth=2
+    set cc=80
 endif
 " Use space characters instead of tabs.
 set expandtab
@@ -60,6 +61,7 @@ set history=1000
 set exrc
 set secure
 
+set splitright
 
  " ctags optimization
  set autochdir
