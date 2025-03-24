@@ -64,6 +64,10 @@ set secure
  " ctags optimization
  set autochdir
  set tags=tags;
+let g:ale_cpp_clangtidy_options = ''
+let g:ale_set_balloons=1
+let g:ale_linters_explicit=1
+let g:airline#extensions#ale#enabled=1
 
 if g:hostname =~# 'cs.purdue.edu$'
   let g:ale_linters = {
@@ -76,19 +80,25 @@ if g:hostname =~# 'cs.purdue.edu$'
   let g:ale_cpp_clangtidy_executable = 'clang-tidy'
   let g:ale_c_parse_compile_commands=1
   let g:ale_cpp_clangtidy_extra_options = '-- -I/homes/cs240/public/include/clang/include'
-  let g:ale_cpp_clangtidy_options = ''
-  let g:ale_set_balloons=1
-  let g:ale_linters_explicit=1
-  let g:airline#extensions#ale#enabled=1
+
 endif
 if !(g:hostname =~# 'cs.purdue.edu$')
   let g:ale_linters = {
       \ 'python': ['pylint'],
       \ 'vim': ['vint'],
       \ 'cpp': ['clang'],
-      \ 'c': ['clang']
+      \ 'c': ['clang'],
+      \ 'rust':['analyzer', 'rust-clippy']
   \}
+  autoc
 endif
+
+nnoremap <Leader>q :SpeakLine<cr>
+nnoremap <Leader>w :SpeakLineDetail<cr>
+nnoremap <Leader>e :SpeakLineExplain<cr>
+vnoremap <Leader>a :SpeakRange<cr>
+vnoremap <Leader>s :SpeakRangeDetail<cr>
+vnoremap <Leader>d :SpeakRangeExplain<cr>
 
 
 set foldmethod=indent   "fold based on indent
@@ -114,12 +124,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'terryma/vim-smooth-scroll'
     Plug 'f-person/git-blame.nvim'
     Plug 'Yggdroot/indentLine'
-    Plug 'deoplete-plugins/deoplete-clang'
-    Plug 'Shougo/deoplete.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'emilienlemaire/clang-tidy.nvim'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/completion-nvim'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
@@ -127,9 +134,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'simrat39/rust-tools.nvim'
     Plug 'Raimondi/delimitMate'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    " Plug 'a11cf0/nvsr'
+    " Plug 'rust-lang/rust.vim'
     if !(g:hostname =~# 'cs.purdue.edu$')
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'github/copilot'
         Plug 'wfxr/minimap.vim'
         let g:minimap_width = 10
