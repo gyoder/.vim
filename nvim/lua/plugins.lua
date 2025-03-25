@@ -21,4 +21,5 @@ return require('packer').startup(function(use)
 
   use 'nvim-treesitter/nvim-treesitter'
   use 'mbbill/undotree'
+  use 'mfussenegger/nvim-lint'
 end)

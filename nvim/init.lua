@@ -18,6 +18,10 @@ require("plugins")
 require("native-lsp")
 require("diagnostics")
 require("remap")
+if string.match(hostname, "cs.purdue.edu") then
+  require("westwood-lint")
+end
+require("standard-lint")
 
 vim.cmd("source ~/.vim/settings.vim")
 

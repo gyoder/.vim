@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/scie/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?.lua;/Users/scie/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?/init.lua;/Users/scie/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?.lua;/Users/scie/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/scie/.cache/nvim/packer_hererocks/2.1.1736781742/lib/lua/5.1/?.so"
+local package_path_str = "/u/riker/u99/yoder177/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?.lua;/u/riker/u99/yoder177/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?/init.lua;/u/riker/u99/yoder177/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?.lua;/u/riker/u99/yoder177/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/u/riker/u99/yoder177/.cache/nvim/packer_hererocks/2.1.1736781742/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,35 +74,40 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["nvim-lint"] = {
+    loaded = true,
+    path = "/u/riker/u99/yoder177/.local/share/nvim/site/pack/packer/start/nvim-lint",
+    url = "https://github.com/mfussenegger/nvim-lint"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/Users/scie/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/u/riker/u99/yoder177/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/Users/scie/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/u/riker/u99/yoder177/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/scie/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/u/riker/u99/yoder177/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["solarized.nvim"] = {
     config = { "\27LJ\2\n³\1\0\0\4\0\n\0\0246\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\4\0'\2\5\0B\0\2\0026\1\0\0009\1\1\1+\2\2\0=\2\6\0016\1\0\0009\1\1\1'\2\3\0=\2\2\0019\1\a\0004\3\0\0B\1\2\0016\1\0\0009\1\b\0019\1\t\1'\3\5\0B\1\2\1K\0\1\0\16colorscheme\bcmd\nsetup\18termguicolors\14solarized\frequire\tdark\15background\6o\bvim\0" },
     loaded = true,
-    path = "/Users/scie/.local/share/nvim/site/pack/packer/start/solarized.nvim",
+    path = "/u/riker/u99/yoder177/.local/share/nvim/site/pack/packer/start/solarized.nvim",
     url = "https://github.com/maxmx03/solarized.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/Users/scie/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    path = "/u/riker/u99/yoder177/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   undotree = {
     loaded = true,
-    path = "/Users/scie/.local/share/nvim/site/pack/packer/start/undotree",
+    path = "/u/riker/u99/yoder177/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   }
 }
