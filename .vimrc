@@ -130,6 +130,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'Raimondi/delimitMate'
+    Plug 'nvimtools/none-ls.nvim'
     if !(g:hostname =~# 'cs.purdue.edu$')
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'github/copilot'

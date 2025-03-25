@@ -23,3 +23,36 @@ require('lspconfig').clangd.setup({
     "--background-index",
   }  
 })
+
+
+--[[
+local null_ls = require("null-ls")
+local helpers = require("null-ls.helpers")
+
+local westwood_lint = {
+    name = "eastwood",
+    method = null_ls.methods.DIAGNOSTICS,
+    filetypes = { "c", "cpp", "objc", "objcpp" },
+    generator = helpers.generator_factory({
+        command = "~kkasad/share/westwood",
+        args = { "-f", "machine", "-" },
+        to_stdin = true, -- clang-tidy doesn't accept code on stdin
+        format = "line", -- Call on_output() for each line of output
+        ignore_stderr = true, -- Ignore "NN warnings generated."
+        on_output = helpers.diagnostics.from_patterns({
+            {
+                pattern = "^$",
+                groups = { "file", "row", "col", "severity", "message", "code" },
+            },
+            overrides = {
+                severities = {
+                    note = helpers.diagnostics.severities.hint,
+                },
+            },
+        }),
+        check_exit_code = { 0, 1 }, -- Valid exit codes
+    }),
+}
+
+null_ls.register(westwood_lint)
+]]--
