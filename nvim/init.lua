@@ -24,8 +24,13 @@ end
 require("standard-lint")
 
 require("custom-lualine")
-
+require("autoclose").setup()
+require('betterTerm').setup()
 vim.cmd("source ~/.vim/settings.vim")
 
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
 
 
