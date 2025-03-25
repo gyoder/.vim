@@ -23,6 +23,8 @@ if string.match(hostname, "cs.purdue.edu") then
 end
 require("standard-lint")
 
+require("custom-lualine")
+
 vim.cmd("source ~/.vim/settings.vim")
 
 
