@@ -3,7 +3,7 @@ vim.lsp.config('luals', {
     print('luals is now active in this file')
   end,
 })
-if !string.match(vim.g.hostname, "cs.purdue.edu") then
+if not string.match(vim.g.hostname, "cs.purdue.edu") then
   vim.lsp.enable("luals")
 end
 
