@@ -36,5 +36,5 @@ if string.match(hostname, "cs.purdue.edu") then
   vim.cmd("set noundofile") -- i forgor how to do this in lua so i didnt
 end
 
-
+require("screenreadertests.screenreader")
 
