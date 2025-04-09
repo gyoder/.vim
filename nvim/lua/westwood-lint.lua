@@ -11,7 +11,8 @@ lint.linters.westwood = {
   parser = require('lint.parser').from_errorformat(errorformat)
 }
 
-
+lint.linters_by_ft.c = {"westwood", "clangtidy"}
+lint.linters_by_ft.cpp = {"westwood"}
 vim.list_extend(lint.linters_by_ft.c, { "westwood", "clangtidy" })
 vim.list_extend(lint.linters_by_ft.cpp, { "westwood" })
 
