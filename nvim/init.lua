@@ -32,6 +32,14 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
+if not string.match(hostname, "cs.purdue.edu") then
+  require('platformio').setup({
+    lsp = "clangd" --default: ccls, other option: clangd
+          -- If you pick clangd, it also creates compile_commands.json
+  })
+end
+
 if string.match(hostname, "cs.purdue.edu") then
   vim.cmd("set noundofile") -- i forgor how to do this in lua so i didnt
 end

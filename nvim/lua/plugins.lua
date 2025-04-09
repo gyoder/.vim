@@ -28,4 +28,13 @@ return require('packer').startup(function(use)
   }
   use 'm4xshen/autoclose.nvim'
   use 'CRAG666/betterTerm.nvim'
+
+  use {
+    'anurag3301/nvim-platformio.lua',
+    requires = {
+      {'akinsho/nvim-toggleterm.lua'},
+      {'nvim-telescope/telescope.nvim'},
+      {'nvim-lua/plenary.nvim'},
+    }
+  }
 end)
