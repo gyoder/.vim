@@ -35,7 +35,11 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    config = function() require("plugins/ts") end
+  }
+
   use 'mbbill/undotree'
   use 'mfussenegger/nvim-lint'
   use {
@@ -74,6 +78,8 @@ return require('packer').startup(function(use)
     "chentoast/marks.nvim",
     config = function() require('plugins/marks-config') end
   }
+
+
 
 
   if packer_bootstrap then

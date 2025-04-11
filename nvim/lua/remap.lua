@@ -26,7 +26,7 @@ local betterTerm = require('betterTerm')
 -- toggle firts term
 vim.keymap.set({"n", "t"}, "<leader>tt", betterTerm.open, { desc = "Open terminal"})
 -- Select term focus
-vim.keymap.set({"n"}, "<leader>tf", betterTerm.select, { desc = "Select terminal"})
+-- vim.keymap.set({"n"}, "<leader>tf", betterTerm.select, { desc = "Select terminal"})
 -- Create new term
 local current = 2
 vim.keymap.set(
@@ -37,3 +37,4 @@ vim.keymap.set(
     end,
     { desc = "New terminal"}
 )
+
