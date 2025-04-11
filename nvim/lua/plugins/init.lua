@@ -41,7 +41,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-    config = function() require('plugins/custom-lualine.lua') end
+    config = function() require('plugins/lualine-config') end
   }
   use {
     'm4xshen/autoclose.nvim',
