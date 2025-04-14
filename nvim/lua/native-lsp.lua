@@ -25,6 +25,15 @@ vim.lsp.config('rust_analyzer', {
 
 vim.lsp.enable("rust_analyzer")
 
+vim.lsp.config('zls', {
+  on_attach = function()
+    print('zls is now active in this file')
+  end,
+})
+
+vim.lsp.enable("zls")
+
+
 -- https://lsp-zero.netlify.app/blog/lsp-client-features.html
 
 vim.opt.completeopt = {'menu', 'menuone', 'noselect', 'noinsert'}
