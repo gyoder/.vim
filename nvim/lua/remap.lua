@@ -38,3 +38,30 @@ vim.keymap.set(
     { desc = "New terminal"}
 )
 
+-- Neotree
+
+local ntc = require('neo-tree.command')
+vim.keymap.set('n', '<C-b>', function()
+    local reveal_file = vim.fn.expand('%:p')
+    if (reveal_file == '') then
+      reveal_file = vim.fn.getcwd()
+    else
+      local f = io.open(reveal_file, "r")
+      if (f) then
+        f.close(f)
+      else
+        reveal_file = vim.fn.getcwd()
+      end
+    end
+    ntc.execute({
+      action = "focus",          -- OPTIONAL, this is the default value
+      source = "filesystem",     -- OPTIONAL, this is the default value
+      position = "right",         -- OPTIONAL, this is the default value
+      reveal_file = reveal_file, -- path to file or folder to reveal
+      reveal_force_cwd = true,   -- change cwd without asking if needed
+      toggle = true,
+    })  end,
+  { desc = "Show Sidebar" }
+)
+
+
