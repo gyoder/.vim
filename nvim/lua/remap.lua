@@ -3,6 +3,8 @@ vim.keymap.set("n", "<leader>\\", ":nohlsearch<CR>")
 
 -- easier to move windows
 vim.keymap.set("n", "`h", "<C-w>h")
+vim.keymap.set("n", "`j", "<C-w>j")
+vim.keymap.set("n", "`k", "<C-w>k")
 vim.keymap.set("n", "`l", "<C-w>l")
 
 vim.keymap.set("n", "<leader>qr", vim.lsp.buf.rename)
