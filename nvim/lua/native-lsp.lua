@@ -17,6 +17,13 @@ vim.lsp.config('clangd', {
 vim.lsp.enable("clangd")
 
 
+vim.lsp.config('rust_analyzer', {
+  on_attach = function()
+    print('rust_analyzer is now active in this file')
+  end,
+})
+
+vim.lsp.enable("rust_analyzer")
 
 -- https://lsp-zero.netlify.app/blog/lsp-client-features.html
 
