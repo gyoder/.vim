@@ -90,8 +90,19 @@ return require('packer').startup(function(use)
     }
   }
 
+
   use { "nvim-tree/nvim-web-devicons" }
   use { "MunifTanjim/nui.nvim" }
+
+  use { 'rafamadriz/friendly-snippets' }
+  use {
+    'saghen/blink.cmp',
+    run = 'cargo build --release',
+    config = function()
+      require("plugins/blink_config")
+    end
+  }
+
 
   if packer_bootstrap then
     require('packer').sync()
