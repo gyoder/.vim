@@ -9,6 +9,7 @@ vim.keymap.set("n", "`l", "<C-w>l")
 
 vim.keymap.set("n", "<leader>qr", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>qf", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float)
 
 -------- PLUGINS -------
 

@@ -105,6 +105,10 @@ return require('packer').startup(function(use)
 
   use { 'f-person/git-blame.nvim' }
 
+  use {
+    'mrcjkb/rustaceanvim',
+    config = function() require('plugins/rust-config') end
+  }
 
   if packer_bootstrap then
     require('packer').sync()

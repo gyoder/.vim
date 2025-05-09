@@ -2,15 +2,13 @@ return {
   cmd = {
     'clangd',
     -- '--clang-tidy',
-    '--background-index',
-    '--offset-encoding=utf-8',
-    '--query-driver=/Users/scie/.platformio/packages/toolchain-xtensa-esp32/**'
+    -- '--background-index',
+    -- '--offset-encoding=utf-8',
   },
-  filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto', 'arduino' },
+  filetypes = { 'arduino' },
   root_markers = {
     '.clangd',
-    '.clang-tidy',
-    '.clang-format',
+    '.ccls',
     'compile_commands.json',
     'compile_flags.txt',
     'configure.ac' -- AutoTools

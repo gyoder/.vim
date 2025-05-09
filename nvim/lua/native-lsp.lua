@@ -16,6 +16,13 @@ vim.lsp.config('clangd', {
 
 vim.lsp.enable("clangd")
 
+vim.lsp.config('tailwind-ls', {
+  on_attach = function()
+    print('tailwind-ls is now active in this file')
+  end,
+})
+
+vim.lsp.enable("tailwind-ls")
 
 vim.lsp.config('rust_analyzer', {
   on_attach = function()
@@ -23,7 +30,7 @@ vim.lsp.config('rust_analyzer', {
   end,
 })
 
-vim.lsp.enable("rust_analyzer")
+-- vim.lsp.enable("rust_analyzer")
 
 vim.lsp.config('zls', {
   on_attach = function()

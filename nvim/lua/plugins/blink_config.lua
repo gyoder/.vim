@@ -6,6 +6,6 @@ require("blink.cmp").setup({
       force_version = 'v0.5.0',
     },
   },
-  keymap = { preset = "super-tab" },
+  keymap = { preset = "enter" },
 })
 
