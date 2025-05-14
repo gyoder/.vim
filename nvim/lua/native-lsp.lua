@@ -8,6 +8,15 @@ if not string.match(vim.g.hostname, "cs.purdue.edu") then
 end
 
 
+vim.lsp.config('pyright', {
+  on_attach = function()
+    print('pyright is now active in this file')
+  end,
+})
+
+vim.lsp.enable("pyright")
+
+
 vim.lsp.config('clangd', {
   on_attach = function()
     print('clangd is now active in this file')
