@@ -109,6 +109,28 @@ return require('packer').startup(function(use)
     'mrcjkb/rustaceanvim',
     config = function() require('plugins/rust-config') end
   }
+  use {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      -- OR 'ibhagwan/fzf-lua',
+      -- OR 'folke/snacks.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function ()
+      require"octo".setup()
+    end
+  }
+
+  use {
+    "NeogitOrg/neogit",
+    config = function ()
+      require("neogit").setup {}
+    end
+  }
+
+
 
   if packer_bootstrap then
     require('packer').sync()
