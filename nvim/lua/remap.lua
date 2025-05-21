@@ -1,6 +1,9 @@
 vim.g.mapleader = "\\"
 vim.keymap.set("n", "<leader>\\", ":nohlsearch<CR>")
 
+vim.keymap.set("n", "<leader>vv", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>vt", ":tabnew<CR>")
+
 -- easier to move windows
 vim.keymap.set("n", "`h", "<C-w>h")
 vim.keymap.set("n", "`j", "<C-w>j")
