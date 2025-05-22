@@ -103,7 +103,14 @@ return require('packer').startup(function(use)
     end
   }
 
-  use { 'f-person/git-blame.nvim' }
+  use {
+    'f-person/git-blame.nvim',
+    config = function ()
+      require("gitblame").setup {
+        gitblame_delay = 1
+      }
+    end
+  }
 
   use {
     'mrcjkb/rustaceanvim',
