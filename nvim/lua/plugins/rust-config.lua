@@ -16,3 +16,15 @@ vim.keymap.set(
   end,
   { silent = true, buffer = bufnr }
 )
+
+vim.g.rustaceanvim = {
+  server = {
+    settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          command = "clippy",
+        },
+      },
+    },
+  },
+}
