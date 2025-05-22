@@ -10,7 +10,7 @@ set tabstop=2
 set expandtab
 set softtabstop=2
 set shiftwidth=2
-set cc=80
+set cc=120
 set scrolloff=10
 set nowrap
 set incsearch
