@@ -79,8 +79,73 @@ return require('packer').startup(function(use)
     config = function() require('plugins/marks-config') end
   }
 
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
+  }
 
 
+  use { "nvim-tree/nvim-web-devicons" }
+  use { "MunifTanjim/nui.nvim" }
+
+  use { 'rafamadriz/friendly-snippets' }
+  use {
+    'saghen/blink.cmp',
+    run = 'cargo build --release',
+    config = function()
+      require("plugins/blink_config")
+    end
+  }
+
+  use {
+    'f-person/git-blame.nvim',
+    config = function ()
+      require("gitblame").setup {
+        gitblame_delay = 1
+      }
+    end
+  }
+
+  use {
+    'mrcjkb/rustaceanvim',
+    config = function() require('plugins/rust-config') end
+  }
+  use {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      -- OR 'ibhagwan/fzf-lua',
+      -- OR 'folke/snacks.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function ()
+      require"octo".setup()
+    end
+  }
+
+  use {
+    "NeogitOrg/neogit",
+    config = function ()
+      require("neogit").setup {}
+    end
+  }
+
+  use "mfussenegger/nvim-dap"
+  use 'theHamsta/nvim-dap-virtual-text'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+
+
+
+
+
+  ------------------------
 
   if packer_bootstrap then
     require('packer').sync()
