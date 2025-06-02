@@ -33,14 +33,6 @@ vim.lsp.config('tailwind-ls', {
 
 vim.lsp.enable("tailwind-ls")
 
-vim.lsp.config('rust_analyzer', {
-  on_attach = function()
-    print('rust_analyzer is now active in this file')
-  end,
-})
-
--- vim.lsp.enable("rust_analyzer")
-
 vim.lsp.config('zls', {
   on_attach = function()
     print('zls is now active in this file')
@@ -48,7 +40,6 @@ vim.lsp.config('zls', {
 })
 
 vim.lsp.enable("zls")
-
 
 -- https://lsp-zero.netlify.app/blog/lsp-client-features.html
 
