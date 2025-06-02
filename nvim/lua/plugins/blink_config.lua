@@ -3,7 +3,7 @@ require("blink.cmp").setup({
     implementation = "prefer_rust",
     prebuilt_binaries = {
       download = true,
-      force_version = 'v0.5.0',
+      force_version = 'v1.2.0',
     },
   },
   keymap = { preset = "enter" },
