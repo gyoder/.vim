@@ -22,6 +22,10 @@ vim.keymap.set('n', '<leader>ff', ts_builtins.find_files, { desc = 'Telescope fi
 vim.keymap.set('n', '<leader>fg', ts_builtins.git_files, { desc = 'Telescope find git files' })
 vim.keymap.set('n', '<leader>fb', ts_builtins.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', ts_builtins.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>fs', ts_builtins.lsp_workspace_symbols, { desc = 'Telescope find symbols' })
+vim.keymap.set('n', '<leader>fts', ts_builtins.treesitter, { desc = 'Telescope find treesitter' })
+vim.keymap.set('n', '<leader>fd', ts_builtins.lsp_definitions, { desc = 'Telescope find definition' })
+vim.keymap.set('n', '<leader>ftd', ts_builtins.lsp_type_definitions, { desc = 'Telescope find type definition' })
 
 -- Undo Tree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
