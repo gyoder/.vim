@@ -141,7 +141,9 @@ return require('packer').startup(function(use)
   use 'theHamsta/nvim-dap-virtual-text'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
 
+  use 'wakatime/vim-wakatime'
 
+  use { "geigerzaehler/tree-sitter-jinja2" }
 
 
 
